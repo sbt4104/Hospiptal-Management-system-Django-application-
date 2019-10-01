@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  mysite2:
+    image: mysite2
+    build: .
+    ports:
+      - 8000:8000

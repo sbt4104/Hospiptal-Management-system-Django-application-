@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+ {% if person.designation == 'doctor' %}
+  <div class="container">
+        <h2>List of available days</h2>
+    <div class="jumbotron">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered zero-configuration">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>time</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for i in form %}
+                    <tr>
+                        <td>{{ i.avlday }}</td>
+                        <td>{{ i.avltime }}</td>
+                        <td><a href="{% url 'basic_app:deletesc' pk=i.pk %}">delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+    
+    <h2>Add available days</h2>
+    <div class="jumbotron">
+        <div class="table-responsive">
+            <form  action="{% url 'basic_app:schedules1' %}" method="POST">
+                {% csrf_token %}
+                {{ form2.as_p }}
+                <input type="submit" >
+              </form>
+        </div>
+    </div> 
+
+
+  </div>
+  {% else %}
+
+  {% endif %}
+{% endblock %}

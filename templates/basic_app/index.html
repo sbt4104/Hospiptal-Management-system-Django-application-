@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Hi Shubham Here</h1>
+    {% if user.is_authenticated %}
+        <h2>Welcome {{ user.username }}!</h2>
+        <h4>{{ user.email }}</h4>
+        <h5>{{ person.contact }}</h5>
+        <h5>{{ person.field }}</h5>
+    {% else %}
+        <h2>Welcome to the site!</h2>
+    {% endif %}
+    <p>Types
+
+        Lehigh Valley Hospital in Allentown, Pennsylvania
+        Some patients go to a hospital just for diagnosis, treatment, or therapy and then leave ("outpatients") without staying overnight; while others are "admitted" and stay overnight or for several days or weeks or months ("inpatients"). Hospitals usually are distinguished from other types of medical facilities by their ability to admit and care for inpatients whilst the others, which are smaller, are often described as clinics.
+        
+        General and acute care
+        The best-known type of hospital is the general hospital, also known as an acute-care hospital. These facilities handle many kinds of disease and injury, and normally have an emergency department (sometimes known as "accident & emergency") or trauma center to deal with immediate and urgent threats to health. Larger cities may have several hospitals of varying sizes and facilities. Some hospitals, especially in the United States and Canada, have their own ambulance service.
+        
+        District
+        A district hospital typically is the major health care facility in its region, with large numbers of beds for intensive care, critical care, and long-term care.
+        
+        In California, "district hospital" refers specifically to a class of healthcare facility created shortly after World War II to address a shortage of hospital beds in many local communities.[6][7] Even today, district hospitals are the sole public hospitals in 19 of California's counties,[6] and are the sole locally-accessible hospital within nine additional counties in which one or more other hospitals are present at substantial distance from a local community.[6] Twenty-eight of California's rural hospitals and 20 of its critical-access hospitals are district hospitals.[7] They are formed by local municipalities, have boards that are individually elected by their local communities, and exist to serve local needs.[6][7] They are a particularly important provider of healthcare to uninsured patients and patients with Medi-Cal (which is California's Medicaid program, serving low-income persons, some senior citizens, persons with disabilities, children in foster care, and pregnant women).[6][7] In 2012, district hospitals provided $54 million in uncompensated care in California.[7]
+        
+        Specialised
+        
+        Starship Children's Health is a children's hospital in Auckland, New Zealand.
+        Types of specialised hospitals include rehabilitation hospitals, children's hospitals, seniors' (geriatric) hospitals, long-term acute care facilities and hospitals for dealing with specific medical needs such as psychiatric problems (see psychiatric hospital), certain disease categories such as cardiac, oncology, or orthopedic problems, and so forth. In Germany specialised hospitals are called Fachkrankenhaus; an example is Fachkrankenhaus Coswig (thoracic surgery).
+        
+        A hospital may be a single building or a number of buildings on a campus. Many hospitals with pre-twentieth-century origins began as one building and evolved into campuses. Some hospitals are affiliated with universities for medical research and the training of medical personnel such as physicians and nurses, often called teaching hospitals. Worldwide, most hospitals are run on a nonprofit basis by governments or charities. There are however a few exceptions, e.g. China, where government funding only constitutes 10% of income of hospitals. (need citation here. Chinese sources seem conflicted about the for-profit/non-profit ratio of hospitals in China)
+        
+        Specialised hospitals can help reduce health care costs compared to general hospitals. For example, Narayana Health's Bangalore cardiac unit, which is specialised in cardiac surgery, allows for significantly greater number of patients. It has 3000 beds (more than 20 times the average American hospital) and in pediatric heart surgery alone, it performs 3000 heart operations annually, making it by far the largest such facility in the world.[8][2] Surgeons are paid on a fixed salary instead of per operation; thus, the costs to the hospital drops when the number of procedures increases, taking advantage of economies of scale.[8] Additionally, it is argued that costs go down as all its specialists become efficient by working on one "production line" procedure.[2]
+        
+        Teaching
+        
+        McMaster University Medical Centre is a teaching hospital in Hamilton, Ontario
+        A teaching hospital combines assistance to people with teaching to medical students and nurses and often is linked to a medical school, nursing school or university. In some countries like UK exists the clinical attachment system that is defined as a period of time when a doctor is attached to a named supervisor in a clinical unit, with the broad aims of observing clinical practice in the UK and the role of doctors and other healthcare professionals in the National Health Service (NHS).</p>
+{% endblock %}

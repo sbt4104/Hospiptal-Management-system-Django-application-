@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+ {% if person.designation != 'doctor' %}
+  <div class="container">
+      <h2>your appointment details</h2>
+    <div class="jumbotron">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered zero-configuration">
+                <thead>
+                    <tr>
+                        <td>date</td>
+                        <th>time</th>
+                        <th>status</th>
+                        <th>doctor</th>
+                        <th>prescription</th>
+                        <th>download report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for i in history %}
+                    <tr>
+                        <td>{{ i.appointday }}</td>
+                        <td>{{ i.appointtime }}</td>
+                        <td>{{ i.status }}</td>
+                        <td>{{ i.doctor }}</td>
+                        <td>{{ i.prescription }}</td>
+                        <td><a href="{% url 'basic_app:downloadpdf' pk=i.pk %}">Download</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+    
+    <h2>Request for an appointment Here</h2>
+
+    <div class="jumbotron">
+        <div class="table-responsive">
+            <form  action="{% url 'basic_app:doctoform' %}" method="POST">
+                {% csrf_token %}
+                {{ form2.as_p }}
+                <input type="submit" >
+              </form>
+        </div>
+    </div> 
+
+  </div>
+  {% else %}
+
+  <div class="container">
+        <div class="jumbotron">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered zero-configuration">
+                    <thead>
+                        <tr>
+                            <td>date</td>
+                            <th>time</th>
+                            <th>status</th>
+                            <th>patient</th>
+                            <th>prescription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in history %}
+                        <tr>
+                            <td>{{ i.appointday }}</td>
+                            <td>{{ i.appointtime }}</td>
+                            <td>{{ i.status }}</td>
+                            <td>{{ i.patient }}</td>
+                            <td>{{ i.prescription }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+
+  {% endif %}
+{% endblock %}
